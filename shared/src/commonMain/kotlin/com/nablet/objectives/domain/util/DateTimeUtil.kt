@@ -4,6 +4,10 @@ import kotlinx.datetime.*
 
 class DateTimeUtil {
 
+	companion object {
+		val instance = DateTimeUtil()
+	}
+
 	fun now(): LocalDateTime {
 		val currentMoment: Instant = Clock.System.now()
 		return currentMoment.toLocalDateTime(TimeZone.currentSystemDefault())

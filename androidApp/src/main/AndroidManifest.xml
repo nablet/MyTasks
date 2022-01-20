@@ -3,6 +3,7 @@
     package="com.nablet.objectives.android">
 
     <application
+        android:name="com.nablet.objectives.MainApplication"
         android:allowBackup="false"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
