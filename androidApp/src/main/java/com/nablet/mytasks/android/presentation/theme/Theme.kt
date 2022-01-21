@@ -42,7 +42,7 @@ fun AppTheme(
 	) {
 		Box(modifier = Modifier
 			.fillMaxSize()
-			.background(color = BlueGrey200)
+			.background(color = White1000)
 		) {
 			ProcessDialogQueue(
 				dialogQueue = dialogQueue,

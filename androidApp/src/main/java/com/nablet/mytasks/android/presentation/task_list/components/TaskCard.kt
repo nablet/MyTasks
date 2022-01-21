@@ -57,13 +57,15 @@ fun TaskCard(
 					.wrapContentWidth(Alignment.Start),
 				style = MaterialTheme.typography.h6
 			)
-			Text(
-				text = task.description,
-				modifier = Modifier
-					.fillMaxWidth(0.85f)
-					.wrapContentWidth(Alignment.Start),
-				style = MaterialTheme.typography.subtitle1
-			)
+			task.description?.also { taskDescription ->
+				Text(
+					text = taskDescription,
+					modifier = Modifier
+						.fillMaxWidth(0.85f)
+						.wrapContentWidth(Alignment.Start),
+					style = MaterialTheme.typography.subtitle1
+				)
+			}
 			Text(
 				text = DateTimeUtil.instance.humanizeDatetime(task.localDateTime),
 				modifier = Modifier

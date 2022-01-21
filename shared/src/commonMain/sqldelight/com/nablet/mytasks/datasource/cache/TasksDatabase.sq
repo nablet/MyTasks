@@ -1,23 +1,22 @@
+-- version 1: Jan 21 2021 8:22pm
 
--- version 1
-
-CREATE TABLE tasks (
+CREATE TABLE Task_Entity (
     name TEXT NOT NULL PRIMARY KEY,
     desc TEXT,
-    local_date_time TEXT
+    local_date_time REAL NOT NULL
 );
 
 insertTask:
 INSERT OR REPLACE
-INTO tasks (name, desc, local_date_time)
+INTO Task_Entity (name, desc, local_date_time)
 VALUES (?, ?, ?);
 
 getTasks:
 SELECT *
-FROM tasks
+FROM Task_Entity
 ORDER BY local_date_time;
 
 deleteTask:
 DELETE
-FROM tasks
+FROM Task_Entity
 WHERE name = ?;

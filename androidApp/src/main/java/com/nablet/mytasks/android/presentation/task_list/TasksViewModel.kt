@@ -39,7 +39,7 @@ class TasksViewModel @Inject constructor(
 			when (output) {
 				is Loading -> _state.update { it.copy(isLoading = output.loading) }
 				is Update -> _state.update { it.copy(tasks = output.data) }
-				is Failure -> appendToMessageQueue(output.message)
+				is Error -> appendToMessageQueue(output.message)
 			}
 		}
 	}

@@ -1,5 +1,6 @@
 package com.nablet.mytasks.android.di
 
+import com.nablet.mytasks.datasource.cache.TasksRepository
 import com.nablet.mytasks.usecases.LoadTasks
 import dagger.Module
 import dagger.Provides
@@ -13,8 +14,8 @@ object UseCasesModule {
 
 	@Singleton
 	@Provides
-	fun provideLoadTasks(): LoadTasks {
-		return LoadTasks()
+	fun provideLoadTasks(tasksRepository: TasksRepository): LoadTasks {
+		return LoadTasks(tasksRepository = tasksRepository)
 	}
 
 }
