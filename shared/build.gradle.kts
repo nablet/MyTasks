@@ -84,3 +84,10 @@ android {
 		targetSdk = Application.targetSdk
 	}
 }
+
+sqldelight {
+	database("TasksDatabase") {
+		packageName = "com.nablet.mytasks.datasource.cache"
+		sourceFolders = listOf("sqldelight")
+	}
+}

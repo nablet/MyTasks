@@ -1,0 +1,23 @@
+
+-- version 1
+
+CREATE TABLE tasks (
+    name TEXT NOT NULL PRIMARY KEY,
+    desc TEXT,
+    local_date_time TEXT
+);
+
+insertTask:
+INSERT OR REPLACE
+INTO tasks (name, desc, local_date_time)
+VALUES (?, ?, ?);
+
+getTasks:
+SELECT *
+FROM tasks
+ORDER BY local_date_time;
+
+deleteTask:
+DELETE
+FROM tasks
+WHERE name = ?;
