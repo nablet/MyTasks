@@ -1,11 +1,11 @@
 pluginManagement {
-    repositories {
-        google()
-        gradlePluginPortal()
-        mavenCentral()
-    }
+	repositories {
+		google()
+		gradlePluginPortal()
+		mavenCentral()
+	}
 }
 
-rootProject.name = "Objectives"
+rootProject.name = "MyTasks"
 include(":androidApp")
 include(":shared")
