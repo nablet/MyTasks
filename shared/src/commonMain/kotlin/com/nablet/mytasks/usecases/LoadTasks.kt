@@ -6,7 +6,6 @@ import com.nablet.mytasks.domain.model.Task
 import com.nablet.mytasks.domain.model.UIComponentType
 import com.nablet.mytasks.domain.util.*
 import com.nablet.mytasks.util.Logger
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onCompletion
@@ -17,12 +16,11 @@ class LoadTasks(private val tasksRepository: TasksRepository) {
 
 	fun execute(): CommonFlow<DataState<out List<Task>>> = flow {
 		emit(Loading(true))
-		delay(1000)
-
 		val tasks = when (val result = tasksRepository.getTasks()) {
 			is Success -> result.value
 			is Failure -> throw result.exception
 		}
+		logger.log("tasks=$tasks")
 		emit(Update(data = tasks))
 	}.catch {
 		emit(Error(

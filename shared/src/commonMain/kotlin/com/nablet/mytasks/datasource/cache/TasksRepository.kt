@@ -13,7 +13,7 @@ interface TasksRepository {
 }
 
 class TasksRepositoryImpl(
-	private val tasksDatabase: TasksDatabase,
+	tasksDatabase: TasksDatabase,
 	private val dateTimeUtil: DateTimeUtil,
 ) : TasksRepository {
 

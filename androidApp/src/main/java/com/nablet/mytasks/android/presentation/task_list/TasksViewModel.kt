@@ -6,6 +6,8 @@ import com.nablet.mytasks.domain.model.GenericMessageInfo
 import com.nablet.mytasks.domain.util.*
 import com.nablet.mytasks.presentation.task_list.TaskListEvent
 import com.nablet.mytasks.presentation.task_list.TaskListState
+import com.nablet.mytasks.usecases.AddTask
+import com.nablet.mytasks.usecases.DeleteTask
 import com.nablet.mytasks.usecases.LoadTasks
 import com.nablet.mytasks.util.Logger
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,7 +19,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TasksViewModel @Inject constructor(
-	private val loadTasks: LoadTasks,
+	private val loadTasksUseCase: LoadTasks,
+	private val addTaskUseCase: AddTask,
+	private val deleteTaskUseCase: DeleteTask,
 ) : ViewModel() {
 
 	private val logger = Logger("TasksViewModel")
@@ -27,21 +31,37 @@ class TasksViewModel @Inject constructor(
 
 	fun onEvent(event: TaskListEvent) {
 		when (event) {
-			is TaskListEvent.AddTask -> {}
-			is TaskListEvent.OnClick -> {}
+			is TaskListEvent.AddTask -> addTask(event.name, event.desc)
+			is TaskListEvent.OnClick -> deleteTask(event.selectedTask.name)
 			is TaskListEvent.OnLongClick -> {}
 			is TaskListEvent.OnRemoveHeadMessageFromQueue -> removeHeadMessage()
 		}
 	}
 
 	init {
-		loadTasks.execute().collectCommon(viewModelScope) { output ->
+		loadTasks()
+	}
+
+	private fun loadTasks() {
+		loadTasksUseCase.execute().collectCommon(viewModelScope) { output ->
 			when (output) {
 				is Loading -> _state.update { it.copy(isLoading = output.loading) }
 				is Update -> _state.update { it.copy(tasks = output.data) }
 				is Error -> appendToMessageQueue(output.message)
 			}
 		}
+	}
+
+	private fun addTask(name: String, desc: String) {
+		addTaskUseCase.execute(name, desc)
+			?.also { appendToMessageQueue(it) }
+			?: loadTasks()
+	}
+
+	private fun deleteTask(taskName: String) {
+		deleteTaskUseCase.execute(taskName)
+			?.also { appendToMessageQueue(it) }
+			?: loadTasks()
 	}
 
 	private fun removeHeadMessage() {

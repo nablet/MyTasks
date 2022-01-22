@@ -16,14 +16,14 @@ import com.nablet.mytasks.domain.util.Queue
 private val LightThemeColors = lightColors(
 	primary = Blue600,
 	primaryVariant = Blue400,
-	onPrimary = Grey800,
-	secondary = White1000,
+	onPrimary = LightBlue900,
+	secondary = BlueA100,
 	secondaryVariant = Teal300,
 	onSecondary = Grey800,
 	error = Red300,
 	onError = Red200,
-	background = BlueGrey200,
-	onBackground = Black1000,
+	background = White1000,
+	onBackground = Grey800,
 	surface = White1000,
 	onSurface = Grey800,
 )

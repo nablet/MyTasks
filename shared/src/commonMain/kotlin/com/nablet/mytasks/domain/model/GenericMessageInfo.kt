@@ -111,3 +111,18 @@ data class NegativeAction(
 	val negativeBtnTxt: String,
 	val onNegativeAction: () -> Unit,
 )
+
+/**
+ * Used in use-cases where result is:
+ * Error -> return a generic message
+ * Success -> return null
+ */
+inline fun <T> Result<T>.toGenericMessageOrNull(className: String): GenericMessageInfo.Builder? {
+	return if (this.isFailure) {
+		GenericMessageInfo.Builder()
+			.id("$className.Error")
+			.title("Error")
+			.uiComponentType(UIComponentType.Dialog)
+			.description(this.exceptionOrNull()?.message ?: "Unknown error!")
+	} else null
+}
