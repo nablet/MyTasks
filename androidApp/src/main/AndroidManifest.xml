@@ -5,6 +5,8 @@
     <application
         android:name="com.nablet.mytasks.MainApplication"
         android:allowBackup="false"
+        android:icon="@drawable/ic_notebook"
+        android:label="MyTasks"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity

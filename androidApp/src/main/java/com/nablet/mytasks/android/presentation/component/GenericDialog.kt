@@ -49,14 +49,17 @@ fun GenericDialog(
 					}
 				}
 				positiveAction?.also {
-					Button(
+					TextButton(
 						modifier = Modifier.padding(end = 8.dp),
 						onClick = {
 							positiveAction.onPositiveAction()
 							onRemoveHeadFromQueue()
 						}
 					) {
-						Text(text = positiveAction.positiveBtnTxt)
+						Text(
+							text = positiveAction.positiveBtnTxt,
+							color = MaterialTheme.colors.onSurface
+						)
 					}
 				}
 			}
