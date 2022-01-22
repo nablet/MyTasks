@@ -10,7 +10,6 @@ import com.nablet.mytasks.android.presentation.component.ProcessDialogQueue
 import com.nablet.mytasks.android.presentation.task_list.components.AddTaskDialog
 import com.nablet.mytasks.android.presentation.task_list.components.TaskList
 import com.nablet.mytasks.android.presentation.theme.AppTheme
-import com.nablet.mytasks.android.presentation.theme.White1000
 import com.nablet.mytasks.presentation.task_list.TaskListEvent
 import com.nablet.mytasks.presentation.task_list.TaskListState
 
