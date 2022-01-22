@@ -35,13 +35,13 @@ fun AppTheme(
 ) {
 	val colors = if (darkTheme) {
 		darkColors(
-			primary = Blue600,
-			secondary = BlueGrey600
+			primary = Blue300,
+			secondary = BlueGrey300
 		)
 	} else {
 		lightColors(
-			primary = Blue300,
-			secondary = BlueGrey300
+			primary = Blue600,
+			secondary = BlueGrey600
 		)
 	}
 
