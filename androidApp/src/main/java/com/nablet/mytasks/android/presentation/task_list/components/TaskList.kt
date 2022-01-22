@@ -97,7 +97,7 @@ fun TaskCard(
 				when (dismissState.targetValue) {
 					DismissValue.Default -> MaterialTheme.colors.background
 					DismissValue.DismissedToEnd -> Green500
-					DismissValue.DismissedToStart -> Grey500
+					DismissValue.DismissedToStart -> Green500
 				}
 			)
 			val alignment = when (direction) {
@@ -106,7 +106,7 @@ fun TaskCard(
 			}
 			val icon = when (direction) {
 				DismissDirection.StartToEnd -> Icons.Rounded.CheckCircle
-				DismissDirection.EndToStart -> Icons.Rounded.Edit
+				DismissDirection.EndToStart -> Icons.Rounded.CheckCircle
 			}
 			val scale by animateFloatAsState(
 				if (dismissState.targetValue == DismissValue.Default) 0.7f else 1.2f
