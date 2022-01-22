@@ -1,5 +1,5 @@
 object Application {
-	const val appId = "com.nablet.objectives.android"
+	const val appId = "com.nablet.mytasks.android"
 	const val versionCode = 1
 	const val versionName = "1.0"
 	const val minSdk = 23
