@@ -1,9 +1,6 @@
 package com.nablet.mytasks.android.presentation.task_list
 
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.FloatingActionButton
-import androidx.compose.material.Icon
-import androidx.compose.material.Scaffold
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Add
 import androidx.compose.runtime.Composable
@@ -13,6 +10,7 @@ import com.nablet.mytasks.android.presentation.component.ProcessDialogQueue
 import com.nablet.mytasks.android.presentation.task_list.components.AddTaskDialog
 import com.nablet.mytasks.android.presentation.task_list.components.TaskList
 import com.nablet.mytasks.android.presentation.theme.AppTheme
+import com.nablet.mytasks.android.presentation.theme.White1000
 import com.nablet.mytasks.presentation.task_list.TaskListEvent
 import com.nablet.mytasks.presentation.task_list.TaskListState
 
@@ -33,7 +31,11 @@ fun TasksScreen(
 				FloatingActionButton(
 					onClick = { showAddTaskDialog.value = true },
 				) {
-					Icon(Icons.Rounded.Add, "AddTaskButton")
+					Icon(
+						imageVector = Icons.Rounded.Add,
+						contentDescription = "AddTaskButton",
+						tint = MaterialTheme.colors.surface
+					)
 				}
 			},
 			content = {

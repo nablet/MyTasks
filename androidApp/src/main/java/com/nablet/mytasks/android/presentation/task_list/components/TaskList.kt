@@ -95,7 +95,7 @@ fun TaskCard(
 			val direction = dismissState.dismissDirection ?: return@SwipeToDismiss
 			val color by animateColorAsState(
 				when (dismissState.targetValue) {
-					DismissValue.Default -> White1000
+					DismissValue.Default -> MaterialTheme.colors.background
 					DismissValue.DismissedToEnd -> Green500
 					DismissValue.DismissedToStart -> Grey500
 				}

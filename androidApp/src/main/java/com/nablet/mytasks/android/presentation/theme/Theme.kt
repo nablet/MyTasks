@@ -1,10 +1,12 @@
 package com.nablet.mytasks.android.presentation.theme
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -27,11 +29,24 @@ private val LightThemeColors = lightColors(
 
 @Composable
 fun AppTheme(
+	darkTheme: Boolean = isSystemInDarkTheme(),
 	displayProgressBar: Boolean,
 	content: @Composable () -> Unit,
 ) {
+	val colors = if (darkTheme) {
+		darkColors(
+			primary = Blue600,
+			secondary = BlueGrey600
+		)
+	} else {
+		lightColors(
+			primary = Blue300,
+			secondary = BlueGrey300
+		)
+	}
+
 	MaterialTheme(
-		colors = LightThemeColors,
+		colors = colors,
 		typography = QuickSandTypography,
 		shapes = AppShapes
 	) {

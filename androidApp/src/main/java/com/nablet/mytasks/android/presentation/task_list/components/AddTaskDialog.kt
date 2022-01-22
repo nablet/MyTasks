@@ -7,8 +7,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
+import com.nablet.mytasks.android.presentation.theme.Grey800
 
 @Composable
 fun AddTaskDialog(
@@ -44,7 +46,6 @@ fun AddTaskDialog(
 						modifier = Modifier
 							.fillMaxWidth()
 							.padding(horizontal = 22.dp)
-
 					)
 					OutlinedTextField(
 						value = taskDescInput.value,
