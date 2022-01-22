@@ -44,7 +44,6 @@ fun AddTaskDialog(
 						modifier = Modifier
 							.fillMaxWidth()
 							.padding(horizontal = 22.dp)
-
 					)
 					OutlinedTextField(
 						value = taskDescInput.value,

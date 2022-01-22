@@ -50,8 +50,7 @@ fun TaskCard(
 			.padding(6.dp)
 			.fillMaxWidth()
 			.clickable { onItemClick.invoke() },
-		elevation = cardElevation.value,
-		backgroundColor = White1000
+		elevation = cardElevation.value
 	) {
 		Column(
 			modifier = Modifier
