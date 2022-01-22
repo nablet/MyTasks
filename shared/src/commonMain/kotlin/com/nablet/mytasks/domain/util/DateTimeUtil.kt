@@ -35,8 +35,8 @@ class DateTimeUtil {
 				.plus(1, DateTimeUnit.DAY, TimeZone.currentSystemDefault())
 				.toLocalDateTime(TimeZone.currentSystemDefault())
 			when (this.date) {
-				today.date -> sb.append("Today at $hour")
-				tomorrow.date -> sb.append("Tomorrow at $hour")
+				today.date -> sb.append("today at $hour")
+				tomorrow.date -> sb.append("tomorrow at $hour")
 				else -> sb.append(this.date.month.name.lowercase() + " ${this.date.dayOfMonth}")
 			}
 		} ?: sb.append("Unknown")

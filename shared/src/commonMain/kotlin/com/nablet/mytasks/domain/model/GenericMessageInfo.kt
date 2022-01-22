@@ -113,7 +113,7 @@ data class NegativeAction(
 )
 
 /**
- * Used in use-cases where result is:
+ * Used in use-cases where repository result is:
  * Error -> return a generic message
  * Success -> return null
  */
@@ -122,7 +122,9 @@ inline fun <T> Result<T>.toGenericMessageOrNull(className: String): GenericMessa
 		GenericMessageInfo.Builder()
 			.id("$className.Error")
 			.title("Error")
+			.positive(PositiveAction("OK") {})
 			.uiComponentType(UIComponentType.Dialog)
 			.description(this.exceptionOrNull()?.message ?: "Unknown error!")
+
 	} else null
 }

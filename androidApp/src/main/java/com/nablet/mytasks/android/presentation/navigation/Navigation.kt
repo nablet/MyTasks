@@ -1,5 +1,6 @@
 package com.nablet.mytasks.android.presentation.navigation
 
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.LocalContext
@@ -11,6 +12,7 @@ import androidx.navigation.compose.rememberNavController
 import com.nablet.mytasks.android.presentation.task_list.TasksScreen
 import com.nablet.mytasks.android.presentation.task_list.TasksViewModel
 
+@ExperimentalMaterialApi
 @Composable
 fun Navigation() {
 	val navController = rememberNavController()

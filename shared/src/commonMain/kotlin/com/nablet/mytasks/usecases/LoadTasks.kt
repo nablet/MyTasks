@@ -20,9 +20,9 @@ class LoadTasks(private val tasksRepository: TasksRepository) {
 			is Success -> result.value
 			is Failure -> throw result.exception
 		}
-		logger.log("tasks=$tasks")
 		emit(Update(data = tasks))
 	}.catch {
+		logger.log(it.message ?: it.stackTraceToString())
 		emit(Error(
 			message = GenericMessageInfo.Builder()
 				.id("LoadTasks.Error")

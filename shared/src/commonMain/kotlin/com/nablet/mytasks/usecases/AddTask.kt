@@ -28,7 +28,6 @@ class AddTask(
 				description = trimmedDesc.toNullIfBlank(),
 				localDateTime = dateTimeUtil.now()
 			)
-			logger.log("taskItem=$taskItem")
 			tasksRepository.insertTask(taskItem)
 		}.toGenericMessageOrNull("AddTask")
 	}

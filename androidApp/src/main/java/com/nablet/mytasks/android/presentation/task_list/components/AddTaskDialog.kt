@@ -1,6 +1,5 @@
 package com.nablet.mytasks.android.presentation.task_list.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -8,32 +7,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
-import com.nablet.mytasks.android.presentation.theme.AppTheme
-
-@Preview(showBackground = true, backgroundColor = 0x000000)
-@Composable
-fun PreviewTaskDialog() {
-	AppTheme(
-		displayProgressBar = false,
-		onRemoveHeadMessageFromQueue = {}
-	) {
-		Box(
-			modifier = Modifier
-				.fillMaxSize()
-				.background(MaterialTheme.colors.background)
-				.padding(20.dp),
-			contentAlignment = Alignment.Center,
-		) {
-			AddTaskDialog(
-				onDismiss = {},
-				onClickAddTask = { _, _ -> }
-			)
-		}
-	}
-}
 
 @Composable
 fun AddTaskDialog(
