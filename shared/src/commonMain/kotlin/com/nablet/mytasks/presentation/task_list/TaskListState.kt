@@ -8,4 +8,10 @@ data class TaskListState(
 	val isLoading: Boolean = false,
 	val tasks: List<Task> = listOf(),
 	val queue: Queue<GenericMessageInfo> = Queue(mutableListOf()),
-)
+) {
+	constructor() : this(
+		isLoading = false,
+		tasks = listOf(),
+		queue = Queue(mutableListOf())
+	)
+}

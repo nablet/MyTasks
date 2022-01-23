@@ -9,6 +9,7 @@ import com.nablet.mytasks.presentation.task_list.TaskListState
 import com.nablet.mytasks.usecases.AddTask
 import com.nablet.mytasks.usecases.DeleteTask
 import com.nablet.mytasks.usecases.LoadTasks
+import com.nablet.mytasks.usecases.LoadTasksOutput
 import com.nablet.mytasks.util.Logger
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
@@ -50,9 +51,9 @@ class TasksViewModel @Inject constructor(
 	private fun loadTasks() {
 		loadTasksUseCase.execute().collectCommon(viewModelScope) { output ->
 			when (output) {
-				is Loading -> _state.update { it.copy(isLoading = output.loading) }
-				is Update -> _state.update { it.copy(tasks = output.data) }
-				is Error -> appendToMessageQueue(output.message)
+				is LoadTasksOutput.Loading -> _state.update { it.copy(isLoading = output.loading) }
+				is LoadTasksOutput.Data -> _state.update { it.copy(tasks = output.tasks) }
+				is LoadTasksOutput.Error -> appendToMessageQueue(output.message)
 			}
 		}
 	}
