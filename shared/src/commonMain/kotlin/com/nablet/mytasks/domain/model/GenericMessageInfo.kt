@@ -117,7 +117,7 @@ data class NegativeAction(
  * Error -> return a generic message
  * Success -> return null
  */
-inline fun <T> Result<T>.toGenericMessageOrNull(className: String): GenericMessageInfo.Builder? {
+fun <T> Result<T>.toGenericMessageOrNull(className: String): GenericMessageInfo.Builder? {
 	return if (this.isFailure) {
 		GenericMessageInfo.Builder()
 			.id("$className.Error")

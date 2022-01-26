@@ -9,6 +9,7 @@ import com.nablet.mytasks.domain.util.Failure
 import com.nablet.mytasks.domain.util.Success
 import com.nablet.mytasks.domain.util.asCommonFlow
 import com.nablet.mytasks.util.Logger
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onCompletion
@@ -29,6 +30,7 @@ class LoadTasks(private val tasksRepository: TasksRepository) {
 			is Success -> result.value
 			is Failure -> throw result.exception
 		}
+		delay(2000)
 		emit(LoadTasksOutput.Data(tasks))
 	}.catch {
 		logger.log(it.message ?: it.stackTraceToString())

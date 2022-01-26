@@ -10,6 +10,12 @@
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		1E8DD0AF279C58FC005C4B97 /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DD0AE279C58FC005C4B97 /* TasksViewModel.swift */; };
+		1E8DD0B1279D6465005C4B97 /* TasksScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DD0B0279D6465005C4B97 /* TasksScreen.swift */; };
+		1EA5B96427A00FB400F83634 /* TaskCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA5B96327A00FB400F83634 /* TaskCard.swift */; };
+		1EA5B96627A0256600F83634 /* GenericMessageInfoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA5B96527A0256600F83634 /* GenericMessageInfoAlert.swift */; };
+		1EA5B96827A03A0200F83634 /* SwipeToDismissModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA5B96727A03A0200F83634 /* SwipeToDismissModifier.swift */; };
+		1EA5B96A27A03D5B00F83634 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA5B96927A03D5B00F83634 /* TaskList.swift */; };
+		1EA5B96C27A043CD00F83634 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA5B96B27A043CD00F83634 /* FloatingActionButton.swift */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		B485101A151FD04306732780 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 333FDEA9CF81959A4DBA67D2 /* Pods_iosApp.framework */; };
@@ -19,6 +25,12 @@
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1E8DD0AE279C58FC005C4B97 /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
+		1E8DD0B0279D6465005C4B97 /* TasksScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksScreen.swift; sourceTree = "<group>"; };
+		1EA5B96327A00FB400F83634 /* TaskCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCard.swift; sourceTree = "<group>"; };
+		1EA5B96527A0256600F83634 /* GenericMessageInfoAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericMessageInfoAlert.swift; sourceTree = "<group>"; };
+		1EA5B96727A03A0200F83634 /* SwipeToDismissModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToDismissModifier.swift; sourceTree = "<group>"; };
+		1EA5B96927A03D5B00F83634 /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
+		1EA5B96B27A043CD00F83634 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		333FDEA9CF81959A4DBA67D2 /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,9 +71,23 @@
 		1E8DD0AD279C58B2005C4B97 /* task_list */ = {
 			isa = PBXGroup;
 			children = (
+				1EA5B96227A00F8400F83634 /* components */,
+				1E8DD0B0279D6465005C4B97 /* TasksScreen.swift */,
 				1E8DD0AE279C58FC005C4B97 /* TasksViewModel.swift */,
 			);
 			path = task_list;
+			sourceTree = "<group>";
+		};
+		1EA5B96227A00F8400F83634 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				1EA5B96327A00FB400F83634 /* TaskCard.swift */,
+				1EA5B96527A0256600F83634 /* GenericMessageInfoAlert.swift */,
+				1EA5B96727A03A0200F83634 /* SwipeToDismissModifier.swift */,
+				1EA5B96927A03D5B00F83634 /* TaskList.swift */,
+				1EA5B96B27A043CD00F83634 /* FloatingActionButton.swift */,
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 		7555FF72242A565900829871 = {
@@ -208,9 +234,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EA5B96A27A03D5B00F83634 /* TaskList.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				1E8DD0AF279C58FC005C4B97 /* TasksViewModel.swift in Sources */,
+				1EA5B96627A0256600F83634 /* GenericMessageInfoAlert.swift in Sources */,
+				1E8DD0B1279D6465005C4B97 /* TasksScreen.swift in Sources */,
+				1EA5B96827A03A0200F83634 /* SwipeToDismissModifier.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				1EA5B96C27A043CD00F83634 /* FloatingActionButton.swift in Sources */,
+				1EA5B96427A00FB400F83634 /* TaskCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

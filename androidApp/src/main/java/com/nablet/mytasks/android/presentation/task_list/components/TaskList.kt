@@ -1,11 +1,8 @@
 package com.nablet.mytasks.android.presentation.task_list.components
 
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.animation.expandVertically
-import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,36 +12,19 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.CheckCircle
-import androidx.compose.material.icons.rounded.Edit
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.nablet.mytasks.android.presentation.theme.Green500
 import com.nablet.mytasks.android.presentation.theme.Grey400
-import com.nablet.mytasks.android.presentation.theme.Grey500
 import com.nablet.mytasks.android.presentation.theme.White1000
 import com.nablet.mytasks.domain.model.Task
 import com.nablet.mytasks.presentation.task_list.TaskListEvent
-
-@ExperimentalMaterialApi
-@Preview(showBackground = true, backgroundColor = 0x000000)
-@Composable
-fun PreviewTasks() {
-//	val sampleDate = LocalDateTime(2022, 12, 20, 20, 6, 40)
-//	TaskList(
-//		tasks = (0..10).map {
-//			Task(
-//				name = "Task name $it",
-//				description = "A quick brown fox jumps over the lazy dog number -> $it",
-//				localDateTime = sampleDate
-//			)
-//		},
-//		onUserEvent = {}
-//	)
-}
 
 private val ListComparator = Comparator<Task> { left, right ->
 	left.localDateTime.toString().compareTo(right.localDateTime.toString())

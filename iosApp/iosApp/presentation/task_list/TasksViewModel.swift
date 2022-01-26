@@ -9,7 +9,7 @@
 import SwiftUI
 import shared
 
-class TasksViewMode : ObservableObject {
+class TasksViewModel : ObservableObject {
     
     private let logger = Logger(className: "TasksViewModel")
 
@@ -22,14 +22,14 @@ class TasksViewMode : ObservableObject {
     @Published var state: TaskListState = TaskListState()
     @Published var showDialog: Bool = false
 
-    init (
-        addTaskUseCase: AddTask,
-        deleteTaskUseCase: DeleteTask,
-        loadTasksUseCase: LoadTasks
-    ) {
-        self.addTaskUseCase = addTaskUseCase
-        self.deleteTaskUseCase = deleteTaskUseCase
-        self.loadTasksUseCase = loadTasksUseCase
+    init (usecasesModule: UseCasesModule) {
+        self.addTaskUseCase = usecasesModule.addTask
+        self.deleteTaskUseCase = usecasesModule.deleteTask
+        self.loadTasksUseCase = usecasesModule.loadTasks
+        
+        for i in 1...20 {
+            addTask(name: "Task name \(i)", desc: "Task description \(i)")
+        }
         
         loadTasks()
     }
@@ -42,18 +42,12 @@ class TasksViewMode : ObservableObject {
         case is TaskListEvent.OnClick: doNothing()
         case is TaskListEvent.OnLongClick: doNothing()
         case is TaskListEvent.OnSwipeLeft: doNothing()
-        case is TaskListEvent.OnSwipeRight: doNothing()
-        case is TaskListEvent.OnRemoveHeadMessageFromQueue: doNothing()
+        case is TaskListEvent.OnSwipeRight:
+            let event = userEvent as! TaskListEvent.OnSwipeRight
+            deleteTask(name: event.selectedTask.name)
+        case is TaskListEvent.OnRemoveHeadMessageFromQueue: removeMessageFromQueue()
         default: doNothing()
         }
-    }
-    
-    private func updateState(
-        loading: Bool? = nil,
-        taskList: [Task]? = nil,
-        queue: Queue<GenericMessageInfo>? = nil
-    ) {
-        
     }
     
     private func loadTasks() {
@@ -73,8 +67,31 @@ class TasksViewMode : ObservableObject {
         })
     }
     
-    private func addTask(taskItem: Task) {
-        
+    private func addTask(name: String, desc: String) {
+        if let resultMessage = addTaskUseCase.execute(taskName: name, taskDesc: desc) {
+            handleMessage(resultMessage.build())
+        }
+        loadTasks()
+    }
+    
+    private func deleteTask(name: String) {
+        if let resultMessage = deleteTaskUseCase.execute(taskName: name) {
+            handleMessage(resultMessage.build())
+        }
+        loadTasks()
+    }
+    
+    private func updateState(
+        loading: Bool? = nil,
+        taskList: [Task]? = nil,
+        queue: Queue<GenericMessageInfo>? = nil
+    ) {
+        let currentState = (self.state.copy() as! TaskListState)
+        self.state = self.state.doCopy(
+            isLoading: loading ?? currentState.isLoading,
+            tasks: taskList ?? currentState.tasks,
+            queue: queue ?? currentState.queue
+        )
     }
     
     private func handleMessage(_ message: GenericMessageInfo) {
@@ -93,6 +110,16 @@ class TasksViewMode : ObservableObject {
         if !queueUtil.doesMessageAlreadyExistInQueue(queue: queue, messageInfo: message) {
             queue.add(element: message)
             updateState(queue: queue)
+        }
+    }
+    
+    private func removeMessageFromQueue() {
+        let queue = (self.state.copy() as! TaskListState).queue
+        do {
+            try queue.remove()
+            updateState(queue: queue)
+        } catch {
+            self.logger.log(msg: "\(error)")
         }
     }
     
