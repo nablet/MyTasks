@@ -48,22 +48,15 @@ struct TasksScreen: View {
                 viewModel.showAddTaskDialog.toggle()
             }
         )
-        .alert(isPresented: $viewModel.showDialog, content: {
-            let first = viewModel.state.queue.peek()!
-            return GenericMessageInfoAlert().build(
-                message: first,
-                onRemoveHeadMessage: {
-                    viewModel.onUserEvent(
-                        userEvent: TaskListEvent.OnRemoveHeadMessageFromQueue())
+        .navigate(
+            to: AddTaskView(
+                isShowing: $viewModel.showAddTaskDialog,
+                onConfirm: { event in
+                    viewModel.onUserEvent(userEvent: event)
                 }
-            )
-        })
-//        .addTaskDialog(
-//            isShowing: $viewModel.showAddTaskDialog,
-//            onConfirm: { event in
-//                viewModel.onUserEvent(userEvent: event)
-//            }
-//        )
+            ),
+            when: $viewModel.showAddTaskDialog
+        )
     }
 }
 

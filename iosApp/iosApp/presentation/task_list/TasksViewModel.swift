@@ -27,11 +27,6 @@ class TasksViewModel : ObservableObject {
         self.addTaskUseCase = usecasesModule.addTask
         self.deleteTaskUseCase = usecasesModule.deleteTask
         self.loadTasksUseCase = usecasesModule.loadTasks
-        
-        for i in 1...20 {
-            addTask(name: "Task name \(i)", desc: "Task description \(i)")
-        }
-        
         loadTasks()
     }
     

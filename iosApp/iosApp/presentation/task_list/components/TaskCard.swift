@@ -17,6 +17,9 @@ struct TaskCard: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(task.name)
+            if let desc = task.description_ {
+                Text(desc)
+            }
             Text("Created at " + dateTimeUtil.humanizeDatetime(
                 date: task.localDateTime))
         }
