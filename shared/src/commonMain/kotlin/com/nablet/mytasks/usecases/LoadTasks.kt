@@ -30,7 +30,7 @@ class LoadTasks(private val tasksRepository: TasksRepository) {
 			is Success -> result.value
 			is Failure -> throw result.exception
 		}
-		delay(2000)
+		delay(2000) // TODO: remove
 		emit(LoadTasksOutput.Data(tasks))
 	}.catch {
 		logger.log(it.message ?: it.stackTraceToString())

@@ -45,7 +45,7 @@ struct TasksScreen: View {
                 .padding()
                 .foregroundColor(Color.white),
             action: {
-                
+                viewModel.showAddTaskDialog.toggle()
             }
         )
         .alert(isPresented: $viewModel.showDialog, content: {
@@ -58,6 +58,12 @@ struct TasksScreen: View {
                 }
             )
         })
+//        .addTaskDialog(
+//            isShowing: $viewModel.showAddTaskDialog,
+//            onConfirm: { event in
+//                viewModel.onUserEvent(userEvent: event)
+//            }
+//        )
     }
 }
 

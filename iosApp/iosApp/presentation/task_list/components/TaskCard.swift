@@ -17,7 +17,6 @@ struct TaskCard: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(task.name)
-            Text(task.component2()!)
             Text("Created at " + dateTimeUtil.humanizeDatetime(
                 date: task.localDateTime))
         }

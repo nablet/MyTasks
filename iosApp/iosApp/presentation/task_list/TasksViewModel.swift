@@ -21,6 +21,7 @@ class TasksViewModel : ObservableObject {
     // State
     @Published var state: TaskListState = TaskListState()
     @Published var showDialog: Bool = false
+    @Published var showAddTaskDialog: Bool = false
 
     init (usecasesModule: UseCasesModule) {
         self.addTaskUseCase = usecasesModule.addTask
@@ -38,7 +39,9 @@ class TasksViewModel : ObservableObject {
     
     func onUserEvent(userEvent: TaskListEvent) {
         switch userEvent {
-        case is TaskListEvent.AddTask: doNothing()
+        case is TaskListEvent.AddTask:
+            let event = userEvent as! TaskListEvent.AddTask
+            addTask(name: event.name, desc: event.desc)
         case is TaskListEvent.OnClick: doNothing()
         case is TaskListEvent.OnLongClick: doNothing()
         case is TaskListEvent.OnSwipeLeft: doNothing()
