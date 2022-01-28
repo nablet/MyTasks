@@ -90,6 +90,7 @@ class TasksViewModel : ObservableObject {
             tasks: taskList ?? currentState.tasks,
             queue: queue ?? currentState.queue
         )
+        checkIfShouldShowDialog()
     }
     
     private func handleMessage(_ message: GenericMessageInfo) {
@@ -119,6 +120,11 @@ class TasksViewModel : ObservableObject {
         } catch {
             self.logger.log(msg: "\(error)")
         }
+    }
+    
+    private func checkIfShouldShowDialog(){
+        let currentState = (self.state.copy() as! TaskListState)
+        showDialog = currentState.queue.items.count > 0
     }
     
 }

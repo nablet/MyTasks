@@ -16,10 +16,10 @@ struct GenericMessageInfoAlert {
         onRemoveHeadMessage: @escaping () -> Void
     ) -> Alert {
        return Alert(
-            title: Text(message.title),
-            message: Text(message.description_ ?? "Something went wrong"),
+            title: Text(message.title).font(Quicksand.bold),
+            message: Text(message.description_ ?? "Something went wrong").font(Quicksand.regular),
             primaryButton: .default(
-                Text(message.positiveAction?.positiveBtnTxt ?? "Ok"),
+                Text(message.positiveAction?.positiveBtnTxt ?? "Ok").font(Quicksand.bold),
                 action: {
                     if(message.positiveAction != nil){
                         message.positiveAction!.onPositiveAction()
@@ -28,7 +28,7 @@ struct GenericMessageInfoAlert {
                 }
             ),
             secondaryButton: .default(
-                Text(message.negativeAction?.negativeBtnTxt ?? "Cancel"),
+                Text(message.negativeAction?.negativeBtnTxt ?? "Cancel").font(Quicksand.regular),
                 action: {
                     if(message.negativeAction != nil){
                         message.negativeAction!.onNegativeAction()

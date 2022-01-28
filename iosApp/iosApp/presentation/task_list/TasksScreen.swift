@@ -32,6 +32,12 @@ struct TasksScreen: View {
                         userEvent: TaskListEvent.OnSwipeRight(selectedTask: task))
                 }
             )
+            AddTaskDialog(
+                isShowing: $viewModel.showAddTaskDialog,
+                onConfirm: { event in
+                    viewModel.onUserEvent(userEvent: event)
+                }
+            )
             if (viewModel.state.isLoading) {
                 ProgressView("Loading tasks...")
                     .frame(alignment: Alignment.center)
@@ -48,14 +54,18 @@ struct TasksScreen: View {
                 viewModel.showAddTaskDialog.toggle()
             }
         )
-        .navigate(
-            to: AddTaskView(
-                isShowing: $viewModel.showAddTaskDialog,
-                onConfirm: { event in
-                    viewModel.onUserEvent(userEvent: event)
-                }
-            ),
-            when: $viewModel.showAddTaskDialog
+        .alert(
+            isPresented: $viewModel.showDialog,
+            content: {
+                let first = viewModel.state.queue.peek()!
+                return GenericMessageInfoAlert().build(
+                    message: first,
+                    onRemoveHeadMessage: {
+                        viewModel.onUserEvent(
+                            userEvent: TaskListEvent.OnRemoveHeadMessageFromQueue())
+                    }
+                )
+            }
         )
     }
 }

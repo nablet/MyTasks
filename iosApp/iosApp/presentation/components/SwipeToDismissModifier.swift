@@ -22,6 +22,9 @@ struct SwipeToDismissModifier : ViewModifier {
                         if gesture.translation.width < 50 {
                             offset = gesture.translation
                         }
+                        if gesture.translation.width > 50 {
+                            offset = gesture.translation
+                        }
                     }
                     .onEnded { _ in
                         if abs(offset.width) > 100 {

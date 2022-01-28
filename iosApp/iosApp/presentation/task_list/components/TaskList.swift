@@ -19,9 +19,11 @@ struct TaskList : View {
         List {
             ForEach(tasks, id: \.self.name) { task in
                 TaskCard(task: task, dateTimeUtil: dateTimeUtil)
+                    .contentShape(Rectangle())
                     .modifier(SwipeToDismissModifier { onSwipe(task) })
             }
         }
         .listStyle(GroupedListStyle())
+        .animation(Animation.interactiveSpring())
     }
 }
