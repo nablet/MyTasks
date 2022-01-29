@@ -6,3 +6,5 @@ TODO Ideas:
   - swipe rtl → add to unfinished tasks
   - swipe ltr → add to finished tasks
   - option to re-add finished/unfinished task back to list maybe?
+- Internet sync
+- Desktop/Webapp (+online) can have a time management matrix
