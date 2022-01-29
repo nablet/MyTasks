@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.konan.properties.loadProperties
-
 plugins {
 	id(Plugins.androidApplication)
 	kotlin(KotlinPlugins.android)
@@ -7,8 +5,6 @@ plugins {
 	id(Plugins.hilt)
 	kotlin(KotlinPlugins.serialization) version Kotlin.version
 }
-
-val properties = loadProperties("keystore.properties")
 
 android {
 	compileSdk = Application.compileSdk
@@ -19,18 +15,9 @@ android {
 		versionCode = Application.versionCode
 		versionName = Application.versionName
 	}
-	signingConfigs {
-		create("release") {
-			storeFile = file(rootProject.file(properties["RELEASE_STORE_FILE"]!!))
-			storePassword = properties["RELEASE_STORE_PASSWORD"].toString()
-			keyAlias = properties["RELEASE_KEY_ALIAS"].toString()
-			keyPassword = properties["RELEASE_KEY_PASSWORD"].toString()
-		}
-	}
 	buildTypes {
 		getByName("release") {
 			isMinifyEnabled = false
-			signingConfig = signingConfigs.getByName("release")
 		}
 	}
 	buildFeatures {

@@ -9,18 +9,44 @@
 /* Begin PBXBuildFile section */
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
+		1E6756DD27A2CA8D00DCA823 /* Navigate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6756DC27A2CA8D00DCA823 /* Navigate.swift */; };
+		1E6756DF27A2CB4700DCA823 /* AddTaskDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6756DE27A2CB4700DCA823 /* AddTaskDialog.swift */; };
+		1E6756F827A2DA3300DCA823 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6756F727A2DA3300DCA823 /* Typography.swift */; };
+		1E6756FD27A2DAFE00DCA823 /* quicksand_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E6756F927A2DAFE00DCA823 /* quicksand_regular.ttf */; };
+		1E6756FE27A2DAFE00DCA823 /* quicksand_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E6756FA27A2DAFE00DCA823 /* quicksand_medium.ttf */; };
+		1E6756FF27A2DAFE00DCA823 /* quicksand_light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E6756FB27A2DAFE00DCA823 /* quicksand_light.ttf */; };
+		1E67570027A2DAFE00DCA823 /* quicksand_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E6756FC27A2DAFE00DCA823 /* quicksand_bold.ttf */; };
+		1E8DD0AF279C58FC005C4B97 /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DD0AE279C58FC005C4B97 /* TasksViewModel.swift */; };
+		1E8DD0B1279D6465005C4B97 /* TasksScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8DD0B0279D6465005C4B97 /* TasksScreen.swift */; };
+		1EA5B96427A00FB400F83634 /* TaskCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA5B96327A00FB400F83634 /* TaskCard.swift */; };
+		1EA5B96627A0256600F83634 /* GenericMessageInfoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA5B96527A0256600F83634 /* GenericMessageInfoAlert.swift */; };
+		1EA5B96827A03A0200F83634 /* SwipeToDismissModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA5B96727A03A0200F83634 /* SwipeToDismissModifier.swift */; };
+		1EA5B96A27A03D5B00F83634 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA5B96927A03D5B00F83634 /* TaskList.swift */; };
+		1EA5B96C27A043CD00F83634 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA5B96B27A043CD00F83634 /* FloatingActionButton.swift */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
-		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		B485101A151FD04306732780 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 333FDEA9CF81959A4DBA67D2 /* Pods_iosApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1E6756DC27A2CA8D00DCA823 /* Navigate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigate.swift; sourceTree = "<group>"; };
+		1E6756DE27A2CB4700DCA823 /* AddTaskDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskDialog.swift; sourceTree = "<group>"; };
+		1E6756F727A2DA3300DCA823 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
+		1E6756F927A2DAFE00DCA823 /* quicksand_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = quicksand_regular.ttf; sourceTree = "<group>"; };
+		1E6756FA27A2DAFE00DCA823 /* quicksand_medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = quicksand_medium.ttf; sourceTree = "<group>"; };
+		1E6756FB27A2DAFE00DCA823 /* quicksand_light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = quicksand_light.ttf; sourceTree = "<group>"; };
+		1E6756FC27A2DAFE00DCA823 /* quicksand_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = quicksand_bold.ttf; sourceTree = "<group>"; };
+		1E8DD0AE279C58FC005C4B97 /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
+		1E8DD0B0279D6465005C4B97 /* TasksScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksScreen.swift; sourceTree = "<group>"; };
+		1EA5B96327A00FB400F83634 /* TaskCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCard.swift; sourceTree = "<group>"; };
+		1EA5B96527A0256600F83634 /* GenericMessageInfoAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericMessageInfoAlert.swift; sourceTree = "<group>"; };
+		1EA5B96727A03A0200F83634 /* SwipeToDismissModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToDismissModifier.swift; sourceTree = "<group>"; };
+		1EA5B96927A03D5B00F83634 /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
+		1EA5B96B27A043CD00F83634 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		333FDEA9CF81959A4DBA67D2 /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2516A004AA80AD7B7BE6B53 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 		F90B54ACEE95293BE46E3285 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -46,6 +72,58 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		1E6756E027A2D83900DCA823 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				1E6756FC27A2DAFE00DCA823 /* quicksand_bold.ttf */,
+				1E6756FB27A2DAFE00DCA823 /* quicksand_light.ttf */,
+				1E6756FA27A2DAFE00DCA823 /* quicksand_medium.ttf */,
+				1E6756F927A2DAFE00DCA823 /* quicksand_regular.ttf */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		1E8DD0AC279C5869005C4B97 /* presentation */ = {
+			isa = PBXGroup;
+			children = (
+				1EDA357827A16E2200A9C318 /* components */,
+				1E8DD0AD279C58B2005C4B97 /* task_list */,
+			);
+			path = presentation;
+			sourceTree = "<group>";
+		};
+		1E8DD0AD279C58B2005C4B97 /* task_list */ = {
+			isa = PBXGroup;
+			children = (
+				1EA5B96227A00F8400F83634 /* components */,
+				1E8DD0B0279D6465005C4B97 /* TasksScreen.swift */,
+				1E8DD0AE279C58FC005C4B97 /* TasksViewModel.swift */,
+			);
+			path = task_list;
+			sourceTree = "<group>";
+		};
+		1EA5B96227A00F8400F83634 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				1EA5B96327A00FB400F83634 /* TaskCard.swift */,
+				1EA5B96927A03D5B00F83634 /* TaskList.swift */,
+				1E6756DE27A2CB4700DCA823 /* AddTaskDialog.swift */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		1EDA357827A16E2200A9C318 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				1EA5B96B27A043CD00F83634 /* FloatingActionButton.swift */,
+				1EA5B96527A0256600F83634 /* GenericMessageInfoAlert.swift */,
+				1E6756DC27A2CA8D00DCA823 /* Navigate.swift */,
+				1EA5B96727A03A0200F83634 /* SwipeToDismissModifier.swift */,
+				1E6756F727A2DA3300DCA823 /* Typography.swift */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
@@ -67,8 +145,9 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				1E6756E027A2D83900DCA823 /* resources */,
+				1E8DD0AC279C5869005C4B97 /* presentation */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
-				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
@@ -90,7 +169,6 @@
 				F90B54ACEE95293BE46E3285 /* Pods-iosApp.debug.xcconfig */,
 				E2516A004AA80AD7B7BE6B53 /* Pods-iosApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -154,7 +232,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */,
+				1E67570027A2DAFE00DCA823 /* quicksand_bold.ttf in Resources */,
+				1E6756FF27A2DAFE00DCA823 /* quicksand_light.ttf in Resources */,
+				1E6756FD27A2DAFE00DCA823 /* quicksand_regular.ttf in Resources */,
 				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,
+				1E6756FE27A2DAFE00DCA823 /* quicksand_medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,8 +272,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E6756DD27A2CA8D00DCA823 /* Navigate.swift in Sources */,
+				1EA5B96A27A03D5B00F83634 /* TaskList.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
-				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				1E6756DF27A2CB4700DCA823 /* AddTaskDialog.swift in Sources */,
+				1E8DD0AF279C58FC005C4B97 /* TasksViewModel.swift in Sources */,
+				1EA5B96627A0256600F83634 /* GenericMessageInfoAlert.swift in Sources */,
+				1E8DD0B1279D6465005C4B97 /* TasksScreen.swift in Sources */,
+				1EA5B96827A03A0200F83634 /* SwipeToDismissModifier.swift in Sources */,
+				1EA5B96C27A043CD00F83634 /* FloatingActionButton.swift in Sources */,
+				1E6756F827A2DA3300DCA823 /* Typography.swift in Sources */,
+				1EA5B96427A00FB400F83634 /* TaskCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +344,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lsqlite3";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -307,6 +399,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-lsqlite3";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -319,15 +412,17 @@
 			baseConfigurationReference = F90B54ACEE95293BE46E3285 /* Pods-iosApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 42XGU4JJ6V;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iosApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = orgIdentifier.iosApp;
+				PRODUCT_BUNDLE_IDENTIFIER = nablet.mytasks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -339,15 +434,17 @@
 			baseConfigurationReference = E2516A004AA80AD7B7BE6B53 /* Pods-iosApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 42XGU4JJ6V;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iosApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = orgIdentifier.iosApp;
+				PRODUCT_BUNDLE_IDENTIFIER = nablet.mytasks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
