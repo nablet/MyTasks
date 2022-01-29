@@ -11,3 +11,4 @@
 local.properties
 /androidApp/release/
 /keystore.properties
+/iosApp/iosApp.xcworkspace/xcuserdata/
