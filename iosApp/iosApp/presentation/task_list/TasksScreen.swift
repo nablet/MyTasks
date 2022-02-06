@@ -19,7 +19,10 @@ struct TasksScreen: View {
     
     init(repositoryModule: RepositoryModule) {
         self.repositoryModule = repositoryModule
-        self.usecasesModule = UseCasesModule(tasksRepository: repositoryModule.tasksRepository)
+        self.usecasesModule = UseCasesModule(
+            tasksRepository: repositoryModule.tasksRepository,
+            githubService: repositoryModule.githubService
+        )
         self.viewModel = TasksViewModel(usecasesModule: usecasesModule)
     }
     
