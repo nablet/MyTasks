@@ -2,7 +2,7 @@
 A KMM project! Built for forgetful people! (me!)
 
 TODO Ideas:
-- Version checking using Github
+- Version checking using Github ✓
 - Create tab for finished & unfinished tasks
   - swipe rtl → add to unfinished tasks
   - swipe ltr → add to finished tasks
