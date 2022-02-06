@@ -1,8 +1,10 @@
 package com.nablet.mytasks.android.di
 
 import com.nablet.mytasks.datasource.cache.TasksRepository
+import com.nablet.mytasks.datasource.network.GithubService
 import com.nablet.mytasks.domain.util.DateTimeUtil
 import com.nablet.mytasks.usecases.AddTask
+import com.nablet.mytasks.usecases.CheckVersion
 import com.nablet.mytasks.usecases.DeleteTask
 import com.nablet.mytasks.usecases.LoadTasks
 import dagger.Module
@@ -41,6 +43,16 @@ object UseCasesModule {
 	): DeleteTask {
 		return DeleteTask(
 			tasksRepository = tasksRepository
+		)
+	}
+
+	@Singleton
+	@Provides
+	fun provideCheckVersionUseCase(
+		githubService: GithubService
+	): CheckVersion {
+		return CheckVersion(
+			githubService = githubService
 		)
 	}
 

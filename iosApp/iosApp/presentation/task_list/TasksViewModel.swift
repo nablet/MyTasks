@@ -14,6 +14,7 @@ class TasksViewModel : ObservableObject {
     private let logger = Logger(className: "TasksViewModel")
 
     // UseCases
+    let checkVersionUseCase: CheckVersion
     let addTaskUseCase: AddTask
     let deleteTaskUseCase: DeleteTask
     let loadTasksUseCase: LoadTasks
@@ -24,10 +25,13 @@ class TasksViewModel : ObservableObject {
     @Published var showAddTaskDialog: Bool = false
 
     init (usecasesModule: UseCasesModule) {
+        self.checkVersionUseCase = usecasesModule.checkVersion
         self.addTaskUseCase = usecasesModule.addTask
         self.deleteTaskUseCase = usecasesModule.deleteTask
         self.loadTasksUseCase = usecasesModule.loadTasks
         loadTasks()
+        checkVersion()
+        
     }
     
     func doNothing() {}
@@ -46,6 +50,25 @@ class TasksViewModel : ObservableObject {
         case is TaskListEvent.OnRemoveHeadMessageFromQueue: removeMessageFromQueue()
         default: doNothing()
         }
+    }
+    
+    private func checkVersion() {
+        let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+        checkVersionUseCase.execute(currentVersion: appVersionString)
+            .collectCommon(coroutineScope: nil, callback: { output in
+                switch output {
+                case is CheckVersionStatus.Loading:
+                    let outputLoading = (output as! CheckVersionStatus.Loading).loading
+                    self.updateState(loading: outputLoading)
+                case is CheckVersionStatus.NewVersionAvailable:
+                    let outputNewVer = (output as! CheckVersionStatus.NewVersionAvailable)
+                    self.appendMessageToQueue(outputNewVer.message.build())
+                case is CheckVersionStatus.Error:
+                    let outputError = (output as! CheckVersionStatus.Error)
+                    self.appendMessageToQueue(outputError.message.build())
+                default: self.doNothing()
+                }
+            })
     }
     
     private func loadTasks() {

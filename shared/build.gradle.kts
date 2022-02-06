@@ -29,7 +29,15 @@ kotlin {
 			dependencies {
 				implementation(Ktor.core)
 				implementation(Ktor.clientSerialization)
+				implementation(Ktor.contentNegotiation)
+				implementation(Ktor.serialization)
+				implementation(Ktor.logging)
 				implementation(Kotlinx.datetime)
+				implementation(Kotlinx.nativeMultithreadedCoroutines) {
+					version {
+						strictly(Kotlinx.nativeMultithreadedCoroutinesVersion)
+					}
+				}
 				implementation(SQLDelight.runtime)
 			}
 		}
