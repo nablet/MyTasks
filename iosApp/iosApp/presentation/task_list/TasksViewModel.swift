@@ -54,7 +54,6 @@ class TasksViewModel : ObservableObject {
     
     private func checkVersion() {
         let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-        logger.log(msg: appVersionString)
         checkVersionUseCase.execute(currentVersion: appVersionString)
             .collectCommon(coroutineScope: nil, callback: { output in
                 switch output {
