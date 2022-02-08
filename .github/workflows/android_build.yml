@@ -26,10 +26,13 @@ jobs:
 
       - name: Build Signed AAB
         run: |
-          ./gradlew :androidApp:bundleRelease
           cd androidApp
           cd keystore
           ls
+          cd ..
+          cd ..
+          ./gradlew :androidApp:bundleRelease
+
         env:
           SIGNING_KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.STORE_PASSWORD }}
