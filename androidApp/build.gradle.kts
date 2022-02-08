@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-	compileSdk = Application.compileSdk
+	compileSdk = 32
 	defaultConfig {
 		applicationId = Application.appId
 		minSdk = Application.minSdk
@@ -15,20 +15,35 @@ android {
 		versionCode = Application.versionCode
 		versionName = Application.versionName
 	}
+	signingConfigs {
+		create("release") {
+			val tempFilePath = System.getProperty("user.home") + "/work/_temp/keystore"
+			val allFilesFromDir = File(tempFilePath).listFiles()
+			if (allFilesFromDir != null) {
+				val keystoreFile = allFilesFromDir.first()
+				keystoreFile.renameTo(file("keystore/MyTasks.jks"))
+			}
+			storeFile = file("keystore/MyTasks.jks")
+			storePassword = System.getenv("SIGNING_STORE_PASSWORD")
+			keyAlias = System.getenv("SIGNING_KEY_ALIAS")
+			keyPassword = System.getenv("SIGNING_KEY_PASSWORD")
+		}
+	}
 	buildTypes {
 		getByName("release") {
 			isMinifyEnabled = false
+			signingConfig = signingConfigs.getByName("release")
 		}
 	}
 	buildFeatures {
 		compose = true
 	}
 	compileOptions {
-		sourceCompatibility = JavaVersion.VERSION_1_8
-		targetCompatibility = JavaVersion.VERSION_1_8
+		sourceCompatibility = JavaVersion.VERSION_11
+		targetCompatibility = JavaVersion.VERSION_11
 	}
 	kotlinOptions {
-		jvmTarget = "1.8"
+		jvmTarget = "11"
 	}
 	composeOptions {
 		kotlinCompilerExtensionVersion = Compose.composeVersion
@@ -37,12 +52,12 @@ android {
 
 dependencies {
 	implementation(project(":shared"))
-
+	
 	implementation(Accompanist.coil)
-
+	
 	implementation(AndroidX.appCompat)
 	implementation(AndroidX.fragmentKtx)
-
+	
 	implementation(Compose.runtime)
 	implementation(Compose.runtimeLiveData)
 	implementation(Compose.ui)
@@ -53,16 +68,16 @@ dependencies {
 	implementation(Compose.constraintLayout)
 	implementation(Compose.activity)
 	implementation(Compose.navigation)
-
+	
 	implementation(Google.material)
-
+	
 	implementation(Hilt.hiltAndroid)
 	implementation(Hilt.hiltNavigation)
 	kapt(Hilt.hiltCompiler)
-
+	
 	implementation(Kotlinx.datetime)
-
+	
 	implementation(Ktor.android)
-
+	
 	debugImplementation(SquareUp.leakCanary)
 }

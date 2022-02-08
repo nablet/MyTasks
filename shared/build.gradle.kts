@@ -91,6 +91,11 @@ android {
 		minSdk = Application.minSdk
 		targetSdk = Application.targetSdk
 	}
+	buildTypes {
+		getByName("release") {
+			signingConfig = signingConfigs.getByName("debug")
+		}
+	}
 }
 
 sqldelight {
