@@ -21,6 +21,7 @@ jobs:
           mkdir "${TMP_KEYSTORE_FILE_PATH}"
           echo $ENCODED_STRING | base64 --decode > "${TMP_KEYSTORE_FILE_PATH}"/MyTasks.jks
           cd androidApp
+          cd keystore
           ls
 
 #      - name: Make ./gradlew executable
