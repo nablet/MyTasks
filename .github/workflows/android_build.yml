@@ -21,22 +21,22 @@ jobs:
           mkdir "${TMP_KEYSTORE_FILE_PATH}"
           echo $ENCODED_STRING | base64 --decode > "${TMP_KEYSTORE_FILE_PATH}"/MyTasks.jks
 
-      - name: Make ./gradlew executable
-        run: chmod +x ./gradlew
-
-      - name: Build Signed AAB
+      - name: Check folders
         run: |
           cd androidApp
+          ls
           cd keystore
           ls
-          cd ..
-          cd ..
-          ./gradlew :androidApp:bundleRelease
 
-        env:
-          SIGNING_KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          SIGNING_KEY_PASSWORD: ${{ secrets.STORE_PASSWORD }}
-          SIGNING_STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+#      - name: Make ./gradlew executable
+#        run: chmod +x ./gradlew
+#
+#      - name: Build Signed AAB
+#        run: ./gradlew :androidApp:bundleRelease
+#        env:
+#          SIGNING_KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+#          SIGNING_KEY_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+#          SIGNING_STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
 #
 #      - name: Upload Signed AAB
 #        uses: actions/upload-artifact@v2
