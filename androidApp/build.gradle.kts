@@ -18,12 +18,14 @@ android {
 	signingConfigs {
 		create("release") {
 			val tempFilePath = System.getProperty("user.home") + "/work/_temp/keystore"
+			println("tempFilePath = $tempFilePath")
 			val allFilesFromDir = File(tempFilePath).listFiles()
+			println("allFilesFromDir = $allFilesFromDir")
 			if (allFilesFromDir != null) {
 				val keystoreFile = allFilesFromDir.first()
-				keystoreFile.renameTo(file("keystore/MyTasks.jks"))
+				keystoreFile.renameTo(file("$tempFilePath/MyTasks.jks"))
 			}
-			storeFile = file("keystore/MyTasks.jks")
+			storeFile = file("$tempFilePath/MyTasks.jks")
 			storePassword = System.getenv("SIGNING_STORE_PASSWORD")
 			keyAlias = System.getenv("SIGNING_KEY_ALIAS")
 			keyPassword = System.getenv("SIGNING_KEY_PASSWORD")
