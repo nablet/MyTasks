@@ -20,14 +20,14 @@ jobs:
         id: decode_keystore
         uses: timheuer/base64-to-file@v1.1
         with:
-          fileName: 'keystore/MyTasks.jks'
+          fileName: 'MyTasks.jks'
           encodedString: ${{ secrets.KEYSTORE }}
 
       - name: Make ./gradlew executable
         run: chmod +x ./gradlew
 
       - name: Build Signed AAB
-        run: ./gradlew androidApp:bundleRelease
+        run: ./gradlew :androidApp:bundleRelease
         env:
           SIGNING_KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.STORE_PASSWORD }}
@@ -40,7 +40,7 @@ jobs:
           path: androidApp/build/outputs/bundle/release
 
       - name: Build Signed APK
-        run: ./gradlew androidApp:assembleRelease
+        run: ./gradlew :androidApp:assembleRelease
         env:
           SIGNING_KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.STORE_PASSWORD }}
