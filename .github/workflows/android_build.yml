@@ -1,4 +1,4 @@
-name: Build Release and Staging - Signed APK and AAB
+name: Build Release - Signed APK and AAB
 
 on: workflow_dispatch
 
@@ -6,10 +6,10 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-      - name: Set Up JDK
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11
+#      - name: Set Up JDK
+#        uses: actions/setup-java@v1
+#        with:
+#          java-version: 11
 
       - uses: actions/checkout@v2
 
@@ -20,35 +20,34 @@ jobs:
           TMP_KEYSTORE_FILE_PATH="${RUNNER_TEMP}"/keystore
           mkdir "${TMP_KEYSTORE_FILE_PATH}"
           echo $ENCODED_STRING | base64 --decode > "${TMP_KEYSTORE_FILE_PATH}"/MyTasks.jks
-          ls
           cd androidApp
           ls
 
-      - name: Make ./gradlew executable
-        run: chmod +x ./gradlew
-
-      - name: Build Signed AAB
-        run: ./gradlew :androidApp:bundleRelease
-        env:
-          SIGNING_KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          SIGNING_KEY_PASSWORD: ${{ secrets.STORE_PASSWORD }}
-          SIGNING_STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
-
-      - name: Upload Signed AAB
-        uses: actions/upload-artifact@v2
-        with:
-          name: Build Artifacts
-          path: androidApp/build/outputs/bundle/release
-
-      - name: Build Signed APK
-        run: ./gradlew :androidApp:assembleRelease
-        env:
-          SIGNING_KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          SIGNING_KEY_PASSWORD: ${{ secrets.STORE_PASSWORD }}
-          SIGNING_STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
-
-      - name: Upload Signed APK
-        uses: actions/upload-artifact@v2
-        with:
-          name: Build Artifacts
-          path: androidApp/build/outputs/apk/release
+#      - name: Make ./gradlew executable
+#        run: chmod +x ./gradlew
+#
+#      - name: Build Signed AAB
+#        run: ./gradlew :androidApp:bundleRelease
+#        env:
+#          SIGNING_KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+#          SIGNING_KEY_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+#          SIGNING_STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+#
+#      - name: Upload Signed AAB
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: Build Artifacts
+#          path: androidApp/build/outputs/bundle/release
+#
+#      - name: Build Signed APK
+#        run: ./gradlew :androidApp:assembleRelease
+#        env:
+#          SIGNING_KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+#          SIGNING_KEY_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+#          SIGNING_STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+#
+#      - name: Upload Signed APK
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: Build Artifacts
+#          path: androidApp/build/outputs/apk/release
