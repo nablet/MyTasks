@@ -18,12 +18,10 @@ jobs:
           ENCODED_STRING: ${{ secrets.KEYSTORE }}
         run: |
           TMP_KEYSTORE_FILE_PATH="${RUNNER_TEMP}"/keystore
+          echo $TMP_KEYSTORE_FILE_PATH
+          echo $ENCODED_STRING
           mkdir "${TMP_KEYSTORE_FILE_PATH}"
           echo $ENCODED_STRING | base64 --decode > "${TMP_KEYSTORE_FILE_PATH}"/MyTasks.jks
-
-      - name: Check folders
-        run: |
-          ls -la
 
 #      - name: Make ./gradlew executable
 #        run: chmod +x ./gradlew
