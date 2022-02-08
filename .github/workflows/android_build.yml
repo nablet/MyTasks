@@ -13,8 +13,8 @@ jobs:
 
       - uses: actions/checkout@v2
 
-      - name: Run Tests
-        run: ./gradlew test
+#      - name: Run Tests
+#        run: ./gradlew test
 
       - name: Decode Keystore file
         id: decode_keystore
