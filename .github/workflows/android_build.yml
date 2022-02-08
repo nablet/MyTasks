@@ -23,10 +23,7 @@ jobs:
 
       - name: Check folders
         run: |
-          cd androidApp
-          ls
-          cd keystore
-          ls
+          ls -la
 
 #      - name: Make ./gradlew executable
 #        run: chmod +x ./gradlew
