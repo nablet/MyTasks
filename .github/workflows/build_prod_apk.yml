@@ -1,0 +1,29 @@
+name: Build Prod Apk
+on:
+  push:
+    branches:
+      - master
+      - development
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+
+      - name: Set Up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - uses: actions/checkout@v2
+
+      - name: Make ./gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Build APK
+        run: ./gradlew :androidApp:assembleRelease
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: APK
+          path: androidApp/build/outputs/apk/release
