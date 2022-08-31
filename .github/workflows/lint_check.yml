@@ -1,0 +1,40 @@
+name: KTlint check
+on:
+  pull_request:
+    branches:
+      - 'Release/Staging'
+      - 'Release/UAT'
+      - 'Release/Production'
+jobs:
+  ktlintFormat:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - uses: actions/checkout@v2
+
+      - name: Make './gradlew' executable
+        run: chmod +x ./gradlew
+
+      - name: Run 'Run "./gradlew ktlintCheck"'
+        id: ktlintCheck
+        run: ./gradlew ktlintCheck
+        continue-on-error: true
+
+      - name: Lint result
+        uses: actions/upload-artifact@v2
+        with:
+          name: Lint result
+          path: build/reports/ktlint/ktlintKotlinScriptFormat
+
+      - name: Notify in Google Chat
+        if: github.event_name == 'pull_request'
+        run: |
+          curl --location --request POST 'https://chat.googleapis.com/v1/spaces/AAAAmINwWW4/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=MHCZRwRbXkNrw-oa5_kUS0ThavnhvTR6Pqh9fXy29pc%3D' \
+          --header 'Content-Type: application/json' \
+          --data-raw '{
+              "text": "Lint check succeeded: ${{ steps.ktlintCheck.outcome }}\nLink: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          }'
