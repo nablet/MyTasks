@@ -19,11 +19,21 @@ jobs:
       - name: Make ./gradlew executable
         run: chmod +x ./gradlew
 
-      - name: Build APK
-        run: ./gradlew :androidApp:assembleRelease
+      - name: Decode Google Play service account file
+        env:
+          SERVICE_ACCOUNT_DATA_STRING: ${{ secrets.SERVICE_ACCOUNT_DATA }}
+        run: |
+          echo $SERVICE_ACCOUNT_DATA_STRING
+          echo $SERVICE_ACCOUNT_DATA_STRING | base64 --decode > service_account.json
+          ls
+#
+#      - name: Build APK
+#        run: ./gradlew :androidApp:assembleRelease
+#
+#      - name: Upload APK
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: APK
+#          path: androidApp/build/outputs/apk/release
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v2
-        with:
-          name: APK
-          path: androidApp/build/outputs/apk/release
+
