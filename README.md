@@ -7,6 +7,7 @@ TODO Ideas:
   - checked = done, move to bottom
 - Create recurring tasks
 - Add alarm? or some kind of notif
+- Upload to Google Play!
 
 ---
 Not sure about these:
