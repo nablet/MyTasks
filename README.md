@@ -13,3 +13,6 @@ TODO Ideas:
 Not sure about these:
 - Internet sync between multiple devices
 - Desktop/Webapp (+online) can have a time management matrix
+
+
+#### Recreating the project from scratch due to pretty old kmp setup
